@@ -53,10 +53,6 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.http.id]                                # Nutzt VPC-Security-Gruppen
   key_name               = "tomschiffmann-ec2-sandbox"
 
-  user_data = templatefile("user_data.sh.tpl", {
-    message = "Hello, World! My Name ist Tom"
-  })
-
   tags = {
     Name = "web-server"
   }
