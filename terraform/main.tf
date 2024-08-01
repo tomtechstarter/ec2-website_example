@@ -54,7 +54,7 @@ resource "aws_instance" "web" {
   key_name               = "tomschiffmann-ec2-sandbox"
 
   user_data = templatefile("user_data.sh.tpl", {
-    message = "Hello, World"
+    message = "Hello, World! My Name ist Tom"
   })
 
   tags = {
