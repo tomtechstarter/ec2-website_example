@@ -1,0 +1,2 @@
+- `ansible -i inventory.ini all -m ping` test connection
+- Run a playbook: `ansible-playbook -i inventory.ini <playbook>.yml`

@@ -1,0 +1,25 @@
+---
+# Ein Playbook besteht aus einer oder mehreren Plays.
+- name: Name des Plays
+  hosts: Zielgruppen-Hosts # Kann 'all' oder eine spezifische Gruppe/Host sein
+  become: true # Optional: Wird verwendet, um Aktionen mit erhöhten Rechten auszuführen (z.B. sudo)
+
+  vars: # Optional: Variablen, die innerhalb des Plays verwendet werden
+    var_name: Wert
+
+  tasks: # Die Liste der Aufgaben, die ausgeführt werden sollen
+    - name: Installation eines Pakets
+      ansible.builtin.package:
+        name: paketname # Name des zu installierenden Pakets
+        state: present # Sorgt dafür, dass das Paket installiert ist (kann auch 'absent' sein, um es zu deinstallieren)
+
+    - name: Starten und Aktivieren eines Dienstes
+      ansible.builtin.service:
+        name: dienstname # Name des Dienstes
+        state: started # Startet den Dienst (kann auch 'stopped' sein, um ihn zu stoppen)
+        enabled: yes # Aktiviert den Dienst beim Systemstart (kann auch 'no' sein, um ihn zu deaktivieren)
+
+    - name: Eine weitere Aufgabe
+      ansible.builtin.another_module:
+        key: value
+        another_key: another_value
